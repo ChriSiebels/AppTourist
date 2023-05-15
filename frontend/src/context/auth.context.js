@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import authService from "./../services/auth.service";
+import authService from "../services/auth.services";
 
 const AuthContext = React.createContext();
 
@@ -50,11 +50,14 @@ function AuthProviderWrapper(props) {
     await authenticateUser();
   };
 
-  useEffect(async () => {
-    // Run the function after the initial render,
-    // after the components in the App render for the first time.
-    await authenticateUser();
-  }, []);
+  useEffect(
+    () => async () => {
+      // Run the function after the initial render,
+      // after the components in the App render for the first time.
+      await authenticateUser();
+    },
+    []
+  );
 
   return (
     <AuthContext.Provider

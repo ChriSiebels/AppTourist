@@ -3,7 +3,7 @@ import axios from "axios";
 class AuthService {
   constructor() {
     this.api = axios.create({
-      baseURL: process.env.REACT_APP_BACKEND,
+      baseURL: process.env.REACT_APP_SERVER_URL || "http://localhost:5005",
     });
 
     // Automatically set JWT token in the headers for every request
@@ -19,26 +19,27 @@ class AuthService {
     });
   }
 
-  login = (requestBody) => {
-    return this.api.post("/auth/login", requestBody);
-    // same as
-    // return axios.post("http://localhost:5005/auth/login");
+  createTour = (requestBody) => {
+    return this.api.post("/api/tours", requestBody);
   };
 
-  signup = (requestBody) => {
-    return this.api.post("/auth/signup", requestBody);
-    // same as
-    // return axios.post("http://localhost:5005/auth/singup");
+  getAllTours = () => {
+    return this.api.get("/api/tours");
   };
 
-  verify = () => {
-    return this.api.get("/auth/verify");
-    // same as
-    // return axios.post("http://localhost:5005/auth/verify");
+  getTours = (id) => {
+    return this.api.get(`/api/tours/${id}`);
+  };
+
+  updateTours = (id, requestBody) => {
+    return this.api.put(`/api/tours/${id}`, requestBody);
+  };
+
+  deleteTours = (id) => {
+    return this.api.delete(`/api/tours/${id}`);
   };
 }
 
-// Create one instance (object) of the service
 const authService = new AuthService();
 
 export default authService;

@@ -21,7 +21,7 @@ db.once("open", () => {
 
 const authRouter = require("./routes/auth.routes");
 
-app.use("/api/auth", authRouter);
+app.use("/auth", authRouter);
 
 app.get("/", (req, res) => {
   res.send("Hello world");
