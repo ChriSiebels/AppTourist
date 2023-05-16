@@ -20,8 +20,10 @@ db.once("open", () => {
 });
 
 const authRouter = require("./routes/auth.routes");
-
 app.use("/auth", authRouter);
+
+const toursRouter = require("./routes/tours.routes");
+app.use("/tours", toursRouter);
 
 app.get("/", (req, res) => {
   res.send("Hello world");
