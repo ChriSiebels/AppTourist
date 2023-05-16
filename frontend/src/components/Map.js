@@ -1,7 +1,7 @@
 import * as React from "react";
 import Map from "react-map-gl";
 
-function MyMap() {
+function MyMap({ children, ...additionalProps }) {
   return (
     <Map
       initialViewState={{
@@ -12,7 +12,10 @@ function MyMap() {
       style={{ width: 600, height: 400 }}
       mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
       mapStyle="mapbox://styles/chrisiebels/clhhh3uib01ev01pga6fvc8x4"
-    />
+      {...additionalProps}
+    >
+      {children}
+    </Map>
   );
 }
 

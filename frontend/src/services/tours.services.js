@@ -1,9 +1,9 @@
 import axios from "axios";
 
-class AuthService {
+class TourService {
   constructor() {
     this.api = axios.create({
-      baseURL: process.env.REACT_APP_SERVER_URL || "http://localhost:5005",
+      baseURL: process.env.REACT_APP_BACKEND,
     });
 
     // Automatically set JWT token in the headers for every request
@@ -20,26 +20,14 @@ class AuthService {
   }
 
   createTour = (requestBody) => {
-    return this.api.post("/api/tours", requestBody);
+    return this.api.post("/tours", requestBody);
   };
 
   getAllTours = () => {
-    return this.api.get("/api/tours");
-  };
-
-  getTours = (id) => {
-    return this.api.get(`/api/tours/${id}`);
-  };
-
-  updateTours = (id, requestBody) => {
-    return this.api.put(`/api/tours/${id}`, requestBody);
-  };
-
-  deleteTours = (id) => {
-    return this.api.delete(`/api/tours/${id}`);
+    return this.api.get("/tours");
   };
 }
 
-const authService = new AuthService();
+const tourService = new TourService();
 
-export default authService;
+export default tourService;

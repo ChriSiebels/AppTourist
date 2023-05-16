@@ -12,6 +12,7 @@ import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import IsPrivate from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
+import NewTour from "./pages/NewTour";
 
 function App() {
   return (
@@ -26,6 +27,14 @@ function App() {
           element={
             <IsPrivate>
               <ToursList />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/tours/new"
+          element={
+            <IsPrivate>
+              <NewTour></NewTour>
             </IsPrivate>
           }
         />
