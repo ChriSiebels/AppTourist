@@ -26,6 +26,10 @@ class TourService {
   getAllTours = () => {
     return this.api.get("/tours");
   };
+
+  getTourById = (tourId) => {
+    return this.api.get(`/tours/${tourId}`);
+  };
 }
 
 const tourService = new TourService();

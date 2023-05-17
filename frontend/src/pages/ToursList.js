@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
-import addTour from "./../components/Add.Tour";
+// import axios from "axios";
 import tourService from "../services/tours.services";
-import AddTour from "./../components/Add.Tour";
 import ToursCard from "./../components/ToursCard";
+import { Link } from "react-router-dom";
 
-const API_URL = "http://localhost:5005";
+// const API_URL = "http://localhost:5005";
 
 function ToursList() {
   const [tours, setTours] = useState([]);
@@ -30,10 +29,11 @@ function ToursList() {
 
   return (
     <div className="ToursListPage">
-      <AddTour refreshTours={getAllTours} />
-
+      <h1>Tour List</h1>
       {tours.map((tour) => (
-        <ToursCard key={tour._id} {...tour} />
+        <Link to={`/tours/${tour._id}`} key={tour._id}>
+          <ToursCard key={tour._id} {...tour} />
+        </Link>
       ))}
     </div>
   );

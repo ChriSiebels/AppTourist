@@ -1,13 +1,32 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Map from "../components/Map";
 import { Marker } from "react-map-gl";
 import tourService from "../services/tours.services";
+import myLocationIcon from "../assest/images.png";
 
 export default function NewTour() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [stops, setStops] = useState([]);
-  console.log(stops);
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const initialStop = {
+            longitude: position.coords.longitude,
+            latitude: position.coords.latitude,
+          };
+          setStops([initialStop]);
+        },
+        (error) => {
+          console.error("Error obtaining geolocation: ", error);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by this browser.");
+    }
+  }, []);
 
   return (
     <div>
@@ -57,7 +76,15 @@ export default function NewTour() {
             latitude={stop.latitude}
             longitude={stop.longitude}
           >
-            {index + 1}
+            {index === 0 ? (
+              <img
+                src={myLocationIcon}
+                alt="my location"
+                style={{ width: "20px", height: "auto" }}
+              />
+            ) : (
+              index
+            )}
           </Marker>
         ))}
       </Map>

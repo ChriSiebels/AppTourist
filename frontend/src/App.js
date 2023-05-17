@@ -2,11 +2,12 @@ import "./pages/Home.css";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-import ToursList from "./pages/ToursList";
-import ToursDetails from "./pages/ToursDetails";
+
+import TourDetails from "./components/TourDetails";
 import TourSuggestions from "./pages/TourSuggestions";
 import CreateTour from "./pages/CreateTour";
 import EditTour from "./pages/EditTour";
+import ToursList from "./pages/ToursList"; // Asegúrate de que esta es la ruta correcta al archivo
 
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
@@ -30,6 +31,7 @@ function App() {
             </IsPrivate>
           }
         />
+
         <Route
           path="/tours/new"
           element={
@@ -38,38 +40,52 @@ function App() {
             </IsPrivate>
           }
         />
+
         <Route
-          path="/tours/edit/:toursId"
+          path="/tours/:tourId"
           element={
             <IsPrivate>
-              <ToursDetails />
+              <TourDetails />
             </IsPrivate>
           }
         />
+
         <Route
-          path="/tours/edit/:toursId"
+          path="/tours/edit/details/:toursId"
+          element={
+            <IsPrivate>
+              <TourDetails />
+            </IsPrivate>
+          }
+        />
+
+        <Route
+          path="/tours/edit/suggestions/:toursId"
           element={
             <IsPrivate>
               <TourSuggestions />
             </IsPrivate>
           }
         />
+
         <Route
-          path="/tours/edit/:toursId"
+          path="/tours/edit/create/:toursId"
           element={
             <IsPrivate>
               <CreateTour />
             </IsPrivate>
           }
         />
+
         <Route
-          path="/tours/edit/:toursId"
+          path="/tours/edit/edit/:toursId"
           element={
             <IsPrivate>
               <EditTour />
             </IsPrivate>
           }
         />
+
         <Route
           path="/signup"
           element={
@@ -78,6 +94,7 @@ function App() {
             </IsAnon>
           }
         />
+
         <Route
           path="/login"
           element={
