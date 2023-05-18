@@ -5,7 +5,6 @@ import Home from "./pages/Home";
 
 import TourDetails from "./components/TourDetails";
 import TourSuggestions from "./pages/TourSuggestions";
-import CreateTour from "./pages/CreateTour";
 import EditTour from "./pages/EditTour";
 import ToursList from "./pages/ToursList"; // Asegúrate de que esta es la ruta correcta al archivo
 
@@ -64,15 +63,6 @@ function App() {
           element={
             <IsPrivate>
               <TourSuggestions />
-            </IsPrivate>
-          }
-        />
-
-        <Route
-          path="/tours/edit/create/:toursId"
-          element={
-            <IsPrivate>
-              <CreateTour />
             </IsPrivate>
           }
         />

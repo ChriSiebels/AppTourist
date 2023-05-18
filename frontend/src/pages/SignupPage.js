@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import authService from "./../services/auth.services";
+import logo from "../assest/logo.png";
 
 function SignupPage(props) {
   const [email, setEmail] = useState("");
@@ -37,31 +38,63 @@ function SignupPage(props) {
   };
 
   return (
-    <div className="SignupPage">
-      <h1>Sign Up</h1>
+    <div className="limaster">
+      <div className="SignupPage">
+        <div className="signup-content">
+          <div className="signup-container">
+            <h1>Sign Up</h1>
+            <form onSubmit={handleSignupSubmit}>
+              <div className="input-container">
+                <label>Email:</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={email}
+                  onChange={handleEmail}
+                />
+              </div>
 
-      <form onSubmit={handleSignupSubmit}>
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+              <div className="input-container">
+                <label>Password:</label>
+                <input
+                  type="password"
+                  name="password"
+                  value={password}
+                  onChange={handlePassword}
+                />
+              </div>
 
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
+              <div className="input-container">
+                <label>Name:</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={name}
+                  onChange={handleName}
+                />
+              </div>
 
-        <label>Name:</label>
-        <input type="text" name="name" value={name} onChange={handleName} />
+              <button type="submit">Sign Up</button>
+            </form>
 
-        <button type="submit">Sign Up</button>
-      </form>
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
+            <p>Already have account?</p>
+            <Link to={"/login"}> Login</Link>
+          </div>
 
-      <p>Already have account?</p>
-      <Link to={"/login"}> Login</Link>
+          <div className="logo-container">
+            <img
+              className="biglogo"
+              src={logo}
+              alt="logo"
+              style={{ width: "500px", height: "auto" }}
+            />
+          </div>
+        </div>
+
+        <footer>ChriSiebels</footer>
+      </div>
     </div>
   );
 }

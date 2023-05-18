@@ -3,6 +3,8 @@ import Map from "../components/Map";
 import { Marker } from "react-map-gl";
 import tourService from "../services/tours.services";
 import myLocationIcon from "../assest/images.png";
+import "../pages/Home.css";
+import logo from "../assest/logo.png";
 
 export default function NewTour() {
   const [name, setName] = useState("");
@@ -30,6 +32,11 @@ export default function NewTour() {
 
   return (
     <div>
+      <img
+        src={logo}
+        alt="logo"
+        style={{ width: "500px", height: "auto" }}
+      ></img>
       <input
         type="text"
         value={name}
@@ -62,6 +69,7 @@ export default function NewTour() {
         Ok
       </button>
       <Map
+        className="mapa"
         onClick={(event) => {
           const newStop = {
             longitude: event.lngLat.lng,
@@ -88,6 +96,12 @@ export default function NewTour() {
           </Marker>
         ))}
       </Map>
+      <img
+        src={logo}
+        alt="logo"
+        style={{ width: "500px", height: "auto" }}
+      ></img>
+      <footer>ChriSiebels</footer>
     </div>
   );
 }

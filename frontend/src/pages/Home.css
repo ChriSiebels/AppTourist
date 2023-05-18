@@ -1,52 +1,188 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 
-.constant-header {
-  background-color: rgb(206, 203, 200);
-  padding: 10px;
-  border-radius: 30px;
-}
-#root {
+html {
   height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
 }
 
-.Home {
-  text-align: center;
-}
-
-.Home-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .Home-logo {
-    animation: Home-logo-spin infinite 20s linear;
-  }
-}
-
-.Home-header {
-  background-color: #282c34;
+body {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
+  margin: 0;
+  padding: 10px;
+  background-color: #f2f2f2;
+  font-family: "IBM Plex Sans", sans-serif;
+  border: 2px solid #3d4350;
+}
+
+button {
+  margin: 10px;
+  background-color: #dedede;
+  font-family: "IBM Plex Sans", sans-serif;
+  border: 1px solid #3d4350;
+  border-right: 2px solid #3d4350;
+  border-bottom: 2px solid #3d4350;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 1000px;
+  padding: 8px;
+}
+
+header {
+  background-color: #eeeeee;
+  padding: 5px;
+  border: 1px solid #3d4350;
+  border-right: 2px solid #3d4350;
+  border-bottom: 2px solid #3d4350;
+  border-radius: 30px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+select {
+  background-color: #dedede;
+  font-family: "IBM Plex Sans", sans-serif;
+  border: 1px solid #3d4350;
+  border-right: 2px solid #3d4350;
+  border-bottom: 2px solid #3d4350;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 1000px;
+  padding: 8px;
+}
+
+input {
+  background-color: #ededed;
+  font-family: "IBM Plex Sans", sans-serif;
+  border: 1px solid #3d4350;
+  border-right: 2px solid #3d4350;
+  border-bottom: 2px solid #3d4350;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 1000px;
+  padding: 8px;
+}
+
+.mapa {
+  border: 1px solid #dedede;
+  width: 100%;
+  height: 300px;
+}
+
+footer {
+  background-color: #dadada;
+  padding: 10px;
+  font-family: "IBM Plex Sans", sans-serif;
+  border: 2px solid #3d4350;
+  text-align: center;
+  margin-top: auto;
+  border: 1px solid #3d4350;
+  border-right: 2px solid #3d4350;
+  border-bottom: 2px solid #3d4350;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 1000px;
+}
+.masterhome {
+  padding-left: 100px;
+  padding-right: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.thome {
+  font-size: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.phome {
+  font-size: 20px;
+  padding: 5px;
+  border: 1px solid #3d4350;
+}
+
+.imghome {
+  align-items: center;
+  text-align: center;
+}
+
+.LoginPage {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo-container {
+  flex: 1;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.Home-link {
-  color: #61dafb;
+.login-container {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-@keyframes Home-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 200px; /* Puedes ajustar este valor para que se adapte a tus necesidades */
+  margin-bottom: 10px;
+}
+
+.input-container label {
+  margin-bottom: 5px;
+}
+
+.input-container input {
+  width: 100%;
+}
+
+.limaster {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.SignupPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.signup-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding-left: 100px;
+}
+
+.logo-container {
+  padding-right: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+.input-container label {
+  margin-bottom: 5px;
+}
+
+.input-container input {
+  width: 100%;
 }

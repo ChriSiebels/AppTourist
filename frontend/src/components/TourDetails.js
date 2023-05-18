@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import MyMap from "./Map";
 import { Marker } from "react-map-gl";
 import tourService from "../services/tours.services";
+import myLocationIcon from "../assest/hostel.png";
+import logo from "../assest/logo.png";
 
 export default function TourDetails() {
   const { tourId } = useParams();
@@ -24,6 +26,11 @@ export default function TourDetails() {
 
   return (
     <div>
+      <img
+        src={logo}
+        alt="logo"
+        style={{ width: "500px", height: "auto" }}
+      ></img>
       <h1>{TourDetails.name}</h1>
       <p>{TourDetails.description}</p>
       <MyMap>
@@ -33,7 +40,15 @@ export default function TourDetails() {
             latitude={stop.latitude}
             longitude={stop.longitude}
           >
-            {index + 1}
+            {index === 0 ? (
+              <img
+                src={myLocationIcon}
+                alt="my location"
+                style={{ width: "25px", height: "auto" }}
+              />
+            ) : (
+              index
+            )}
           </Marker>
         ))}
       </MyMap>

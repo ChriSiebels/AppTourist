@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import tourService from "../services/tours.services";
 import ToursCard from "./../components/ToursCard";
 import { Link } from "react-router-dom";
-
+import logo from "../assest/logo.png";
 // const API_URL = "http://localhost:5005";
 
 function ToursList() {
@@ -29,12 +29,18 @@ function ToursList() {
 
   return (
     <div className="ToursListPage">
+      <img
+        src={logo}
+        alt="logo"
+        style={{ width: "500px", height: "auto" }}
+      ></img>
       <h1>Tour List</h1>
       {tours.map((tour) => (
         <Link to={`/tours/${tour._id}`} key={tour._id}>
           <ToursCard key={tour._id} {...tour} />
         </Link>
       ))}
+      <footer>ChriSiebels</footer>
     </div>
   );
 }

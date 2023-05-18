@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "./../context/auth.context";
+import "../pages/Home.css";
 
 function Navbar() {
   // Subscribe to the AuthContext to gain access to
@@ -16,39 +17,41 @@ function Navbar() {
   };
 
   return (
-    <header className="constant-header">
-      <nav>
-        <Link to="/">
-          <button>Home</button>
-        </Link>
+    <div>
+      <header className="constant-header">
+        <nav>
+          <Link to="/">
+            <button>Home</button>
+          </Link>
 
-        {isLoggedIn && (
-          <>
-            <select name="Tours" onChange={handleSelectChange}>
-              <option value="">Select tour option</option>
-              <option value="/tours">Tours</option>
-              <option value="Tours/New">New Tour</option>
-            </select>
+          {isLoggedIn && (
+            <>
+              <select name="Tours" onChange={handleSelectChange}>
+                <option value="">Select tour option</option>
+                <option value="/tours">Tours</option>
+                <option value="Tours/New">New Tour</option>
+              </select>
 
-            <button onClick={logOutUser}>Logout</button>
-            <span>{user && user.name}</span>
-          </>
-        )}
+              <button onClick={logOutUser}>Logout</button>
+              <span>{user && user.name}</span>
+            </>
+          )}
 
-        {!isLoggedIn && (
-          <>
-            <Link to="/signup">
-              {" "}
-              <button>Sign Up</button>{" "}
-            </Link>
-            <Link to="/login">
-              {" "}
-              <button>Login</button>{" "}
-            </Link>
-          </>
-        )}
-      </nav>
-    </header>
+          {!isLoggedIn && (
+            <>
+              <Link to="/signup">
+                {" "}
+                <button>Sign Up</button>{" "}
+              </Link>
+              <Link to="/login">
+                {" "}
+                <button>Login</button>{" "}
+              </Link>
+            </>
+          )}
+        </nav>
+      </header>
+    </div>
   );
 }
 
