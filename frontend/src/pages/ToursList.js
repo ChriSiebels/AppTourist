@@ -29,11 +29,14 @@ function ToursList() {
 
   return (
     <div className="ToursListPage">
-      <img
-        src={logo}
-        alt="logo"
-        style={{ width: "500px", height: "auto" }}
-      ></img>
+      <div className="logo-container">
+        <img
+          className="logont"
+          src={logo}
+          alt="logo"
+          style={{ width: "100px", height: "auto" }}
+        ></img>
+      </div>
       <h1>Tour List</h1>
       {tours.map((tour) => (
         <Link to={`/tours/${tour._id}`} key={tour._id}>

@@ -2,7 +2,7 @@ import logo from "../assest/logo.png";
 
 function Home() {
   return (
-    <div>
+    <div className="body">
       <div className="masterhome">
         <div className="thome">
           <div className="title home">

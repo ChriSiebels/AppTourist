@@ -31,26 +31,28 @@ export default function NewTour() {
   }, []);
 
   return (
-    <div>
-      <img
-        src={logo}
-        alt="logo"
-        style={{ width: "500px", height: "auto" }}
-      ></img>
+    <div className="container">
+      <div className="logo-container">
+        <img className="logont" src={logo} alt="logo" />
+      </div>
+      <label htmlFor="name">Nombre:</label>
       <input
+        id="name"
         type="text"
         value={name}
         onChange={(event) => {
           setName(event.target.value);
         }}
-      ></input>
+      />
+      <label htmlFor="description">Descripción:</label>
       <input
+        id="description"
         type="text"
         value={description}
         onChange={(event) => {
           setDescription(event.target.value);
         }}
-      ></input>
+      />
       <button
         onClick={async (event) => {
           console.log("si");
@@ -68,39 +70,36 @@ export default function NewTour() {
       >
         Ok
       </button>
-      <Map
-        className="mapa"
-        onClick={(event) => {
-          const newStop = {
-            longitude: event.lngLat.lng,
-            latitude: event.lngLat.lat,
-          };
-          setStops([...stops, newStop]);
-        }}
-      >
-        {stops.map((stop, index) => (
-          <Marker
-            key={index}
-            latitude={stop.latitude}
-            longitude={stop.longitude}
-          >
-            {index === 0 ? (
-              <img
-                src={myLocationIcon}
-                alt="my location"
-                style={{ width: "20px", height: "auto" }}
-              />
-            ) : (
-              index
-            )}
-          </Marker>
-        ))}
-      </Map>
-      <img
-        src={logo}
-        alt="logo"
-        style={{ width: "500px", height: "auto" }}
-      ></img>
+      <div style={{ marginTop: "20px" }}>
+        <Map
+          className="mapa"
+          onClick={(event) => {
+            const newStop = {
+              longitude: event.lngLat.lng,
+              latitude: event.lngLat.lat,
+            };
+            setStops([...stops, newStop]);
+          }}
+        >
+          {stops.map((stop, index) => (
+            <Marker
+              key={index}
+              latitude={stop.latitude}
+              longitude={stop.longitude}
+            >
+              {index === 0 ? (
+                <img
+                  src={myLocationIcon}
+                  alt="my location"
+                  style={{ width: "20px", height: "auto" }}
+                />
+              ) : (
+                index
+              )}
+            </Marker>
+          ))}
+        </Map>
+      </div>
       <footer>ChriSiebels</footer>
     </div>
   );

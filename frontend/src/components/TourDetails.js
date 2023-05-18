@@ -27,9 +27,10 @@ export default function TourDetails() {
   return (
     <div>
       <img
+        className="logont"
         src={logo}
         alt="logo"
-        style={{ width: "500px", height: "auto" }}
+        style={{ width: "100px", height: "auto" }}
       ></img>
       <h1>{TourDetails.name}</h1>
       <p>{TourDetails.description}</p>
