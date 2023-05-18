@@ -5,7 +5,14 @@ const cors = require("cors");
 
 const app = express();
 
-app.use(cors());
+const FRONTEND_URL = process.env.ORIGIN;
+
+app.use(
+  cors({
+    origin: [FRONTEND_URL],
+  })
+);
+// app.use(cors());
 app.use(express.json());
 
 mongoose.connect(process.env.MONGODB_URI, {
